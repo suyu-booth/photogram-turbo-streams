@@ -1,0 +1,9 @@
+<!--var existingPhoto = $("#<%#= dom_id(@like.photo) %>_likes");
+
+var updatedLikeVal = $("<%#= j(render "photos/likes", photo: @like.photo) %>");
+
+existingPhoto.replaceWith(updatedLikeVal);-->
+
+<%= turbo_stream.replace "#{dom_id(@like.photo)}_likes" do %>
+  <%= render "photos/likes", photo: @like.photo %>
+<% end %>
